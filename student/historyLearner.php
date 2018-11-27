@@ -6,6 +6,7 @@ $user_ID = $_SESSION['student_ID'];
 $result1 = loadHistory1($user_ID);if (($result1)==0) {$noresult1 = 0;}
 $result2 = loadHistory2($user_ID);if (($result2)==0) {$noresult2 = 0;}
 $result3 = loadHistory3($user_ID);if (($result3)==0) {$noresult3 = 0;}
+
 ?>
 
 <body class="animsition">
@@ -18,6 +19,47 @@ $result3 = loadHistory3($user_ID);if (($result3)==0) {$noresult3 = 0;}
                         <div class="header-wrap">
                                 <h2 id="maindesc">Test Result History</h2>
                             <div class="header-button">
+                                <div class="noti-wrap">
+                                    <div class="noti__item js-item-menu">
+                                        <i class="zmdi zmdi-notifications"></i>
+                                        <span class="quantity">3</span>
+                                        <div class="notifi-dropdown js-dropdown">
+                                            <div class="notifi__title">
+                                                <p>You have 3 Notifications</p>
+                                            </div>
+                                            <div class="notifi__item">
+                                                <div class="bg-c1 img-cir img-40">
+                                                    <i class="zmdi zmdi-email-open"></i>
+                                                </div>
+                                                <div class="content">
+                                                    <p>You got a email notification</p>
+                                                    <span class="date">April 12, 2018 06:50</span>
+                                                </div>
+                                            </div>
+                                            <div class="notifi__item">
+                                                <div class="bg-c2 img-cir img-40">
+                                                    <i class="zmdi zmdi-account-box"></i>
+                                                </div>
+                                                <div class="content">
+                                                    <p>Your account has been blocked</p>
+                                                    <span class="date">April 12, 2018 06:50</span>
+                                                </div>
+                                            </div>
+                                            <div class="notifi__item">
+                                                <div class="bg-c3 img-cir img-40">
+                                                    <i class="zmdi zmdi-file-text"></i>
+                                                </div>
+                                                <div class="content">
+                                                    <p>You got a new file</p>
+                                                    <span class="date">April 12, 2018 06:50</span>
+                                                </div>
+                                            </div>
+                                            <div class="notifi__footer">
+                                                <a href="#">All notifications</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
@@ -58,20 +100,37 @@ $result3 = loadHistory3($user_ID);if (($result3)==0) {$noresult3 = 0;}
                     </div>
                 </div>
             </header>
-            <!-- HEADER DESKTOP-->       
-            <div class="main-content">
-                <div class="section__content section__content--p30 p-t-40">
+           <div class="main-content p-t-100">
+                <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="row">
-                                    <h3 class="p-b-20">Category:  Psychological Disorder</h3>
+                                    <h3>Category:  Kinds of Learner</h3>
                             <div class="col-12">
                                 <div class="table-responsive table-responsive-data2">
-                                    <button class="au-btn au-btn-icon au-btn--orange au-btn--small" data-toggle="collapse" data-target="#pd">Psychological Test
-                                    </button>
-                                    <a class="au-btn au-btn-icon au-btn--orange au-btn--small" href="../student/historyPersonality.php"> Personality Test
+                                    <br>
+                                    <br>
+                                    <a href="../student/dashboard.php">
+                                        <button class="au-btn au-btn-icon au-btn--orange au-btn--small">
+                                            <i class="zmdi zmdi-arrow-left"></i>back
+                                        </button>
+                                        <br>
+                                    <a href="../student/history.php">
+                                        <button class="au-btn au-btn-icon au-btn--orange au-btn--small">
+                                            Disorder
+                                        </button>
+                                        <br>
+                                    <a href="../student/historyPersonality.php">
+                                        <button class="au-btn au-btn-icon au-btn--orange au-btn--small">
+                                            personality
+                                        </button>
+                                        <br>
+                                    <a href="../student/historyLearner.php">
+                                        <button class="au-btn au-btn-icon au-btn--orange au-btn--small">
+                                            Learners
+                                        </button>
+                                        <br>
                                     </a>
-                                    <a class="au-btn au-btn-icon au-btn--orange au-btn--small" href="../student/historyLearner.php">Types of Learner
-                                    </a>
+                                    <br>
                                     <table class="table table-data2">
                                         <thead>
                                             <tr>
@@ -82,7 +141,7 @@ $result3 = loadHistory3($user_ID);if (($result3)==0) {$noresult3 = 0;}
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <?php if (isset($noresult3)){ ?>
+                                        <?php if (isset($noresult1)){ ?>
                                             <tr>
                                                 <td><i class="fas fa-times"></i><strong> No records found</strong></td>
                                                 <td></td>
@@ -91,7 +150,7 @@ $result3 = loadHistory3($user_ID);if (($result3)==0) {$noresult3 = 0;}
                                                 <td></td>
                                             </tr>
                                         <?php }else{ 
-                                            foreach ($result3 as $row) {?> 
+                                            foreach ($result1 as $row) {?> 
                                             <tr>
                                                 <td><?php echo $row['student_ID'];?></td>
                                                 <td><?php echo date('M d, Y ',strtotime($row['history_date']))?></td>
@@ -114,8 +173,8 @@ $result3 = loadHistory3($user_ID);if (($result3)==0) {$noresult3 = 0;}
                     </div>
                 </div>
            </div>
-       </div>
-   </div>
+        </div> 
+    <?php require('historydata.php'); ?>
 </body>     
 
 

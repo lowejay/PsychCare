@@ -1715,7 +1715,7 @@ function addthisStudent(sid,eid,cid) {
                         icon: "success",
                         button: "Ok",
                         })
-                    $("#addButtonmodal").click();
+                    window.location = '../teacher/view.php?classid=' + cid;
                 }
             }
         });

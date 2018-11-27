@@ -1,11 +1,12 @@
-<?php 
-require('../controllers/session_controller.php');if(!$_SESSION['student_ID']){header('Location: ../index.php');}
-require('../views/header.php');require('navbars.php');require('categories.php');
-require('../controllers/student_controller.php'); 
-    $user_ID = $_SESSION['student_ID'];     
-    $result2 = loadMyAppointments($user_ID);if (($result2)==0) {$noresult2 = 0;}?>
+<?php require('../controllers/session_controller.php'); if(!$_SESSION['student_ID']){header('Location: ../index.php');}?>
+<?php require('../views/header.php');require('navbars.php');require('categories.php'); ?>
+<?php require('../controllers/student_controller.php'); 
+
+$user_ID = $_SESSION['student_ID'];     
+$result2 = loadVacantAppointments($user_ID);if (($result2)==0) {$noresult2 = 0;}?>
 <body class="animsition">
     <div class="page-wrapper">
+        <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
             <header class="header-desktop">
@@ -54,10 +55,14 @@ require('../controllers/student_controller.php');
                     </div>
                 </div>
             </header>
-            <!-- END HEADER DESKTOP-->
-            <div class="main-content">
-                <div class="section__content section__content--p30 p-t-40">
+            <!-- HEADER DESKTOP-->
+            <!-- MAIN CONTENT-->
+             <div class="main-content">
+                <div class="section__content section__content--p30">
                     <div class="container-fluid">
+                        <div class="col-12">
+                            <a id="cat" tabindex="1" style="padding-top: 90px; margin-top: -90px;"></a>
+                        </div>
                         <div class="overview-wrap">
                             <h1 class="title-1 m-b-20">
                                 <i class="fas fa-pencil-square-o"></i>
@@ -130,62 +135,68 @@ require('../controllers/student_controller.php');
                                 </button>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div id="myAppointment" class="col-12">
-                             <div class="row m-t-5">
-                                <div class="col-12">
-                                    <div class="overview-box clearfix">
-                                            <h3 class="title-2 m-b-20">My Appointments</h3>
-                                        <div class="table-responsive table--no-card m-b-40">
-                                            <table class="table table-borderless table-striped table-earning">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Counselor</th>
-                                                        <th>Date</th>
-                                                        <th>Time start</th>
-                                                        <th>Time end</th>
-                                                        <th>status</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php if (isset($noresult2)){ ?>
-                                                    <tr>
-                                                        <td><i class="fas fa-times"></i><strong> No records found</strong></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <?php 
-                                                }else{ foreach($result2 as $row){?>
-                                                    <tr>
-                                                        <td><?php echo $row['emp_FN']." ".$row['emp_LN'] ?></td>
-                                                        <td><?php echo date('M d, Y ',strtotime($row['date_available'])) ?></td>
-                                                        <td><?php echo date('h:i A ',strtotime($row['time_start'])) ?></td>
-                                                        <td><?php echo date('h:i A ',strtotime($row['time_end'])) ?></td>
-                                                        <td><?php echo $row['appointment_status'] ?></td>
-                                                    </tr>
-                                                    <?php }} ?>
-                                                </tbody>    
-                                            </table>
-                                        </div>
+                    </div>                       
+                <!-- PENDING APPOINTMENT-->
+                <div class="row">
+                    <div id="myAppointment"class="col-lg-9">
+                         <div class="row m-t-5">
+                            <div class="col-12">
+                                <div class="overview-box clearfix">
+                                        <h3 class="title-2 m-b-20">My Appointments</h3>
+                                    <div class="table-responsive table--no-card m-b-40">
+                                        <table class="table table-borderless table-striped table-earning">
+                                            <thead>
+                                                <tr>
+                                                    <th>Counselor</th>
+                                                    <th>Date</th>
+                                                    <th>Time start</th>
+                                                    <th>Time end</th>
+                                                    <th>status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php if (isset($noresult2)){ ?>
+                                                <tr>
+                                                    <td><i class="fas fa-times"></i><strong> No records found</strong></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <?php 
+                                            }else{ foreach($result2 as $row){?>
+                                            <tr>
+                                                <td><?php echo $row['emp_FN']." ".$row['emp_LN'] ?></td>
+                                                <td><?php echo date('M d, Y ',strtotime($row['date_available'])) ?></td>
+                                                <td><?php echo date('h:i A ',strtotime($row['time_start'])) ?></td>
+                                                <td><?php echo date('h:i A ',strtotime($row['time_end'])) ?></td>
+                                                <td><?php echo $row['appointment_status'] ?></td>
+                                            </tr>
+                                                <?php }} ?>
+                                        </tbody>    
+                                        </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="copyright">
-                                <p>Copyright © 2018 PsychCare. All rights reserved.</p>
+                </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>Copyright © 2018 PsychCare. All rights reserved.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+       </div>
+     </div>
+ </div>
+</div>
+</div>
 </body> 
 <?php require('../views/footer.php');
 ?>
