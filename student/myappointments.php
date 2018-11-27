@@ -27,7 +27,7 @@ $result3 = loadDoneAppointments($user_ID);if (($result3)==0) {$noresult3 = 0;}?>
                                             <img src="../images/icon/avatar-02.jpg" alt="Student-one" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#"><?php echo $_SESSION['student_FN']." ".$_SESSION['student_LN'];?></a>
+                                            <a class="js-acc-btn" href="#"><?php echo $_SESSION['student_FN']?></a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
@@ -73,11 +73,11 @@ $result3 = loadDoneAppointments($user_ID);if (($result3)==0) {$noresult3 = 0;}?>
                                     	<table class="table table-borderless table-striped table-earning">
                                             <thead>
                                                 <tr>
-                                                    <th>Counselor</th>
-                                                    <th>Date</th>
-                                                    <th>Time start</th>
-                                                    <th>Time end</th>
-                                                    <th>Status</th>
+                                                    <th style="background-color: yellowgreen;">Counselor</th>
+                                                    <th style="background-color: yellowgreen;">Date</th>
+                                                    <th style="background-color: yellowgreen;">Time start</th>
+                                                    <th style="background-color: yellowgreen;">Time end</th>
+                                                    <th style="background-color: yellowgreen;">Status</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -113,12 +113,12 @@ $result3 = loadDoneAppointments($user_ID);if (($result3)==0) {$noresult3 = 0;}?>
                                         <table class="table table-borderless table-striped table-earning">
                                             <thead>
                                                 <tr>
-                                                    <th>Counselor</th>
-                                                    <th>Date</th>
-                                                    <th>Time start</th>
-                                                    <th>Time end</th>
-                                                    <th>status</th>
-                                                    <th>option</th>
+                                                    <th style="background-color: darkkhaki;">Counselor</th>
+                                                    <th style="background-color: darkkhaki;">Date</th>
+                                                    <th style="background-color: darkkhaki;">Time start</th>
+                                                    <th style="background-color: darkkhaki;">Time end</th>
+                                                    <th style="background-color: darkkhaki;">status</th>
+                                                    <th style="background-color: darkkhaki;">option</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -157,11 +157,11 @@ $result3 = loadDoneAppointments($user_ID);if (($result3)==0) {$noresult3 = 0;}?>
                                         <table class="table table-borderless table-striped table-earning">
                                             <thead>
                                                 <tr>
-                                                    <th>Counselor</th>
-                                                    <th>Date</th>
-                                                    <th>Time start</th>
-                                                    <th>Time end</th>
-                                                    <th>status</th>
+                                                    <th style="background-color: skyblue;">Counselor</th>
+                                                    <th style="background-color: skyblue;">Date</th>
+                                                    <th style="background-color: skyblue;">Time start</th>
+                                                    <th style="background-color: skyblue;">Time end</th>
+                                                    <th style="background-color: skyblue;">status</th>
                                                 </tr>
                                             </thead>
                                             <tbody>

@@ -1,72 +1,67 @@
 <?php require_once('session_controller.php');?>
 <?php require_once('db_connect.php');?>
 <?php
-		if(isset($_POST['btnConfirmSched'])){  
-			addNewSched();
-		}
-		if(isset($_GET['this-appointment'])){  
-			removeAppointment($_GET['this-appointment']);
-		}
-		
+	if(isset($_POST['btnConfirmSched'])){  
+		addNewSched();
+	}
+	if(isset($_GET['this-appointment'])){  
+		removeAppointment($_GET['this-appointment']);
+	}
 function loadVacantAppointments($user_ID){
-			$conn = myConnect();
-			$id = $user_ID;
-			$sql = "SELECT * FROM data_appointment WHERE emp_ID = $id AND appointment_status = 'vacant'";
-			$result = mysqli_query($conn,$sql);
-			if(mysqli_num_rows($result)==0){
-				return 0;
-			}else{
-				while($row=mysqli_fetch_array($result)){	
-					//do something as long as there's a remaining row.
-					$rows[] = $row;
-				}
-				return $rows;
-			}
+	$conn = myConnect();
+	$id = $user_ID;
+	$sql = "SELECT * FROM data_appointment WHERE emp_ID = $id AND appointment_status = 'vacant'";
+	$result = mysqli_query($conn,$sql);
+	if(mysqli_num_rows($result)==0){
+		return 0;
+	}else{
+		while($row=mysqli_fetch_array($result)){
+			$rows[] = $row;
+		}
+		return $rows;
+	}
 }
 
 function loadOccupiedAppointments($user_ID){
-			$conn = myConnect();
-			$id = $user_ID;
-			$sql = "SELECT data_student.student_FN, data_student.student_LN, data_appointment.*
-					FROM data_appointment
-					JOIN data_student
-					ON data_student.student_ID=data_appointment.student_ID WHERE emp_ID = $id AND appointment_status ='occupied'";
-			$result = mysqli_query($conn,$sql);
-			if(mysqli_num_rows($result)==0){
-				return 0;
-			}else{
-				while($row=mysqli_fetch_array($result)){	
-					//do something as long as there's a remaining row.
-					$rows[] = $row;
-				}
-				return $rows;
-			}
+	$conn = myConnect();
+	$id = $user_ID;
+	$sql = "SELECT data_student.student_FN, data_student.student_LN, data_appointment.*
+			FROM data_appointment
+			JOIN data_student
+			ON data_student.student_ID=data_appointment.student_ID WHERE emp_ID = $id AND appointment_status ='occupied'";
+	$result = mysqli_query($conn,$sql);
+	if(mysqli_num_rows($result)==0){
+		return 0;
+	}else{
+		while($row=mysqli_fetch_array($result)){
+			$rows[] = $row;
+		}
+		return $rows;
+	}
 }
 
 
 function loadCompletedAppointments($user_ID){
-			$conn = myConnect();
-			$id = $user_ID;
-			$sql = "SELECT data_student.student_FN, data_student.student_LN, data_appointment.*
-					FROM data_appointment
-					JOIN data_student
-					ON data_student.student_ID=data_appointment.student_ID WHERE emp_ID = $id AND appointment_status ='cancelled'";
-			$result = mysqli_query($conn,$sql);
-			if(mysqli_num_rows($result)==0){
-				return 0;
-			}else{
-				while($row=mysqli_fetch_array($result)){	
-					//do something as long as there's a remaining row.
-					$rows[] = $row;
-				}
-				return $rows;
-			}
-}
-
-function addNewSched(){
-	
 	$conn = myConnect();
-	$schedid = null; //no value
+	$id = $user_ID;
+	$sql = "SELECT data_student.student_FN, data_student.student_LN, data_appointment.*
+			FROM data_appointment
+			JOIN data_student
+			ON data_student.student_ID=data_appointment.student_ID WHERE emp_ID = $id AND appointment_status ='cancelled'";
+	$result = mysqli_query($conn,$sql);
+	if(mysqli_num_rows($result)==0){
+		return 0;
+	}else{
+		while($row=mysqli_fetch_array($result)){	
+			//do something as long as there's a remaining row.
+			$rows[] = $row;
+		}
+		return $rows;
+	}
+}
+function addNewSched(){
+	$conn = myConnect();
+	$schedid = null;
 	$userid = $_SESSION["emp_ID"];
 	$date = $_POST['date-of-sched']; 
 	$time = $_POST['time-from'];
@@ -91,7 +86,7 @@ function addNewSched(){
 }
 function removeAppointment($id){
 
-	$conn = myConnect(); //no value
+	$conn = myConnect();
 	$query = "DELETE FROM data_appointment WHERE appointment_ID = '$id'";
 	$result = mysqli_query($conn, $query);
 	$str = "Appointment schedule was removed";
@@ -102,7 +97,6 @@ function removeAppointment($id){
 		echo mysqli_error($conn);
 	}	
 }
-
 function setDoneAppointment($id){
 	$conn = myConnect();
 	$sql = "UPDATE data_appointment SET appointment_status= 2 WHERE appointment_ID='$id'";

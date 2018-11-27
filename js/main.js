@@ -1677,7 +1677,6 @@ function removethisEmployee(id) {
         return false;
     }
 }
-
 //////////////////////////////// TEACHER //////////////////////////////////////////////////////////////
 $(document).ready(function(){
     $('.edit_sched').click(function(){

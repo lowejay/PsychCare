@@ -7,7 +7,6 @@ $result1 = loadHistory1($user_ID);if (($result1)==0) {$noresult1 = 0;}
 $result2 = loadHistory2($user_ID);if (($result2)==0) {$noresult2 = 0;}
 $result3 = loadHistory3($user_ID);if (($result3)==0) {$noresult3 = 0;}
 ?>
-
 <body class="animsition">
     <div class="page-wrapper">
         <div class="page-container">
@@ -24,7 +23,7 @@ $result3 = loadHistory3($user_ID);if (($result3)==0) {$noresult3 = 0;}
                                             <img src="../images/icon/avatar-02.jpg" alt="Student-one" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#"><?php echo $_SESSION['student_FN']." ".$_SESSION['student_LN'];?></a>
+                                            <a class="js-acc-btn" href="#"><?php echo $_SESSION['student_FN']?></a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
@@ -63,22 +62,29 @@ $result3 = loadHistory3($user_ID);if (($result3)==0) {$noresult3 = 0;}
                 <div class="section__content section__content--p30 p-t-40">
                     <div class="container-fluid">
                         <div class="row">
-                                    <h3 class="p-b-20">Category:  Psychological Disorder</h3>
                             <div class="col-12">
+                                <div class="table-data__tool">
+                                    <div class="table-data__tool-left">
+                                        <div class="rs-select2--light">
+                                             <button class="au-btn au-btn-icon au-btn--orange au-btn--small" data-toggle="collapse" data-target="#pd">Psychological Test</button>
+                                        </div>
+                                        <div class="rs-select2--light">
+                                           <button class="au-btn au-btn-icon au-btn--orange au-btn--small" href="../student/historyPersonality.php"> Personality Test</button>
+                                        </div>
+                                        <div class="rs-select2--light">
+                                           <button class="au-btn au-btn-icon au-btn--orange au-btn--small" href="../student/historyLearner.php">Types of Learner</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h4 class="p-b-20">Result for:  Psychological Disorder</h3>
                                 <div class="table-responsive table-responsive-data2">
-                                    <button class="au-btn au-btn-icon au-btn--orange au-btn--small" data-toggle="collapse" data-target="#pd">Psychological Test
-                                    </button>
-                                    <a class="au-btn au-btn-icon au-btn--orange au-btn--small" href="../student/historyPersonality.php"> Personality Test
-                                    </a>
-                                    <a class="au-btn au-btn-icon au-btn--orange au-btn--small" href="../student/historyLearner.php">Types of Learner
-                                    </a>
                                     <table class="table table-data2">
                                         <thead>
                                             <tr>
                                                 <th>ID Number</th>
                                                 <th>Date</th>
                                                 <th>Score</th>
-                                                <th align="right">result View</th>
+                                                <th>result View</th>
                                             </tr>
                                         </thead>
                                         <tbody>

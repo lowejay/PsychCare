@@ -25,7 +25,7 @@
                         </li>
                         <li>
                             <a href="history.php" id="mbtnHistory">
-                                <i class="fas fa-pencil-square-o"></i>History</a>
+                                <i class="fas fa-pencil-square-o"></i>Test Result History</a>
                         </li>
                     </ul>
                 </div>
@@ -54,9 +54,10 @@
                         <ul class="list-unstyled navbar__list">
                         <li class="nav-item">
                             <a href="history.php" id="btnHistory">
-                                <i class="fa fa-history"></i>History</a>
+                                <i class="fa fa-history"></i>Test Result History</a>
                         </li>
                     </ul>
+                    <a href="">haha</a>
                 </nav>
             </div>
         </aside>
