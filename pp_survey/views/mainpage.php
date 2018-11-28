@@ -1,9 +1,9 @@
 <?php require('../controllers/session_controller.php');?>
 <?php if(!isset($_SESSION['student_ID'])){unsetSesh();}?>
 <?php require('header.php'); ?>
+<?php require('sidebar.php'); ?>
 <body>
 	<div id="colorlib-page">
-	<?php require('sidebar.php'); ?>
 	<!--HEADER SLIDER-->
 		<div id="colorlib-main">
 			<aside id="colorlib-hero" class="js-fullheight">
@@ -285,7 +285,7 @@
 		</div>
 	</div>
 	<!--MODAL LOGIN-->
-		<div class="modal fade" id="staticModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true">
+		<div class="modal fade autoclick" id="staticModal" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-md" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -298,13 +298,13 @@
 						<div class="modal-body"> 
 							<div class="row">
 								<div class="col-sm-12 col-md-12">
-									<div class="form-group m-b-30">
+									<div class="form-group mb-15">
 										<p align="left">Id Number</p>
 										<input type="text" name="loginID" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Id Number" required/>
 									</div>
 								</div>
 								<div class="col-sm-12 col-md-12">
-									<div class="form-group m-b-30">
+									<div class="form-group mb-15">
 										<p align="left">Password</p>
 										<input type="password" name="loginPassword" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Password" required/>			
 										<br>

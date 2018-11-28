@@ -1772,23 +1772,38 @@ function validateScheduleTime() {
     });
 }
 //////////////////////////////// GUIDANCE //////////////////////////////////////////////////////////////
-function removethisAppointment(id) {
+function removethisAppointment(id){
     swal({
-            title: "Confirm remove?",
-            text: "This action cannot be undone.",
-            icon: "warning",
-            buttons: ["No", "Yes"],
-            dangerMode: true,
-        })
-        .then((remove) => {
-            if (remove) {
-                window.location = '../controllers/guidance_controller.php?this-appointment=' + id;
-            } else {
+      title: "Confirm cancel.",
+      text: "This appointment schedule will be cancelled.",
+      icon: "warning",
+      buttons: ["No","Yes"],
+      dangerMode: true,
+    })
+    .then((remove) => {
+      if (remove) {
+        window.location='../controllers/guidance_controller.php?this-appointment='+id;
+      }else{
 
-            }
-        });
+      }
+    });
 }
+function updatethisAppointment(id){
+    swal({
+      title: "Confirm update.",
+      text: "This appointment schedule will be completed.",
+      icon: "warning",
+      buttons: ["No","Yes"],
+      dangerMode: true,
+    })
+    .then((remove) => {
+      if (remove) {
+        window.location='../controllers/guidance_controller.php?done-appointment='+id;
+      }else{
 
+      }
+    });
+}
 function validateAppointmentTime() {
     $(document).ready(function() {
         var time = $(".time-from").val();
@@ -1817,3 +1832,17 @@ $(document).ready(function() {
     });
 });
 //////////////////////////////// STUDENT //////////////////////////////////////////////////////////////
+function addAppointment(id){
+    swal({
+        title: "Confirm Add?",
+        buttons: ["No","Yes"],
+        dangerMode: true,
+    })
+    .then((remove) => {
+      if (remove) {
+        window.location='../controllers/student_controller.php?add-appointment='+id;
+      }else{
+
+      }
+    });
+}

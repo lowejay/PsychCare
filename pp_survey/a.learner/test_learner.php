@@ -154,11 +154,11 @@ $counter=1;
 		</div>
 	</div>
 	<!--END BODY-->
-    <div class="modal fade" id="staticModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true">
+    <div class="modal fade" id="learnerNote" tabindex="-1" role="dialog" aria-labelledby="learnerNoteLabel" aria-hidden="true">
         <div class="modal-dialog modal-md m-t-100" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticModalLabel">Please keep in mind</h5>
+                    <h5 class="modal-title" id="learnerNoteLabel">Please keep in mind</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

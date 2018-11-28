@@ -5,7 +5,7 @@
 			<a href="mainpage.php"><img src="../images/logo-landscape.png" width="190" height="100" ></a>
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
-					<li class="colorlib-active"><a href="mainpage.php">Home</a></li>
+					<li><a href="mainpage.php">Home</a></li>
 					<li><a href="#intro" id="btnIntroduction">Introduction</a></li>
 					<li><a href="#about" id="btnPsychcare">Psychcare?</a></li>
 					<li><a href="#developers" id="btnDevelopers">The Developers</a></li>

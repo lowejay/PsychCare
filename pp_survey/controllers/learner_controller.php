@@ -33,7 +33,6 @@ function learnerDeter ($l1,$l2,$l3){
 	$r2 = $_SESSION['l2'];
 	$r3 = $_SESSION['l3'];
 
-	echo $r1;echo $r2; echo $r3;
 	if(($r1 > $r2) AND ($r1 > $r3)){
 		$mssg = "Visual";
 	}
@@ -44,7 +43,7 @@ function learnerDeter ($l1,$l2,$l3){
 		$mssg = "Kinesthetic";
 	}
 	if(isset($mssg)){
-		header('Location:../a.learner/result.php?result=$mssg');
+		header("Location:../a.learner/result.php?result=$mssg");
 	}else{
 		echo "Unexpected Error! ";
 	}

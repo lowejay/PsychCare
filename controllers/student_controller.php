@@ -2,7 +2,7 @@
 <?php require_once('db_connect.php');?>
 <?php
 		if(isset($_GET['add-appointment'])){  
-			addAppointment($_GET['add-appointment']);
+			addthisAppointment($_GET['add-appointment']);
 		}
 		if (isset($_POST['saveProfilePost'])) {
 			saveStudentProfile();
@@ -11,60 +11,56 @@
 			changePassword();
 		}
 	
-function addAppointment($id){
+function addthisAppointment($id){
 	$conn = myConnect();
 	$userid = $_SESSION['student_ID'];
-	
-	$sql = "UPDATE data_appointment SET student_ID ='$userid', appointment_status = 'occupied' WHERE schedule_ID='$id'";
-
+	$sql = "UPDATE data_appointment SET student_ID ='$userid', appointment_status = 'occupied' WHERE appointment_ID='$id'";
 	$result = mysqli_query($conn,$sql);
-
 	if($result){
-	$str = "appointment successfully added!";
-		header("Location:../student/myappointments.php?add-appointment=$str");
+		$str = "Appointment added";
+		header("Location:../student/myappointments.php?adds=$str");
 	}else{
 		echo mysqli_error($conn);
 	}	
 }
 
 function loadVacantAppointments($user_ID){
-			$conn = myConnect();
-			$id = $user_ID;
-			$sql = "SELECT data_employee.emp_FN, data_employee.emp_LN, data_appointment.*
-					FROM data_appointment
-					JOIN data_employee
-					ON data_employee.emp_ID=data_appointment.emp_ID WHERE appointment_status ='vacant'";
-			$result = mysqli_query($conn,$sql);
-				if(mysqli_num_rows($result)==0){
+	$conn = myConnect();
+	$id = $user_ID;
+	$sql = "SELECT data_employee.emp_FN, data_employee.emp_LN, data_appointment.*
+			FROM data_appointment
+			JOIN data_employee
+			ON data_employee.emp_ID=data_appointment.emp_ID WHERE appointment_status ='vacant'";
+	$result = mysqli_query($conn,$sql);
+	if(mysqli_num_rows($result)==0){
+		return 0;
+	}else{
+		while($row=mysqli_fetch_array($result)){	
+			//do something as long as there's a remaining row.
+			$rows[] = $row;
 
-			}else{
-			while($row=mysqli_fetch_array($result)){	
-				//do something as long as there's a remaining row.
-				$rows[] = $row;
-
-			}
-			return $rows;
-}
+		}
+	return $rows;
+	}
 }
 function loadMyAppointments($user_ID){
+	$conn = myConnect();
+	$id = $user_ID;
+	$sql = "SELECT data_employee.emp_FN, data_employee.emp_LN, data_appointment.*
+			FROM data_appointment
+			JOIN data_employee
+			ON data_employee.emp_ID=data_appointment.emp_ID WHERE student_ID = $id AND appointment_status = 'occupied'";
+	$result = mysqli_query($conn,$sql);
+	if(mysqli_num_rows($result)==0){
+		return 0;
+	}else{
+		while($row=mysqli_fetch_array($result)){	
+			//do something as long as there's a remaining row.
+			$rows[] = $row;
 
-			$conn = myConnect();
-			$id = $user_ID;
-			$sql = "SELECT data_employee.emp_FN, data_employee.emp_LN, data_appointment.*
-					FROM data_appointment
-					JOIN data_employee
-					ON data_employee.emp_ID=data_appointment.emp_ID WHERE student_ID = $id AND appointment_status = 'occupied'";
-			$result = mysqli_query($conn,$sql);
-			if(mysqli_num_rows($result)==0){
-
-			}else{
-			while($row=mysqli_fetch_array($result)){	
-				//do something as long as there's a remaining row.
-				$rows[] = $row;
-
-			}
-			return $rows;
-}
+		}
+	return $rows;
+	}
 }
 function loadDoneAppointments($user_ID){
 
@@ -73,15 +69,13 @@ function loadDoneAppointments($user_ID){
 			$sql = "SELECT data_employee.emp_FN, data_employee.emp_LN, data_appointment.*
 					FROM data_appointment
 					JOIN data_employee
-					ON data_employee.emp_ID=data_appointment.emp_ID WHERE student_ID = $id AND appointment_status = 'Done'";
+					ON data_employee.emp_ID=data_appointment.emp_ID WHERE student_ID = $id AND (appointment_status !='occupied' AND appointment_status !='vacant') ";
 			$result = mysqli_query($conn,$sql);
 			if(mysqli_num_rows($result)==0){
-
+				return 0;
 			}else{
-			while($row=mysqli_fetch_array($result)){	
-				//do something as long as there's a remaining row.
+			while($row=mysqli_fetch_array($result)){
 				$rows[] = $row;
-
 			}
 			return $rows;
 	}
@@ -95,12 +89,10 @@ function loadHistory1($user_ID){
 	$result = mysqli_query($conn,$sql);
 	
 		if(mysqli_num_rows($result)==0){
-
+			return 0;
 		}else{
-		while($row=mysqli_fetch_array($result)){	
-			//do something as long as there's a remaining row.
+		while($row=mysqli_fetch_array($result)){
 			$rows[] = $row;
-
 		}
 		return $rows;
 	}
@@ -114,18 +106,15 @@ function loadHistory2($user_ID){
 	$result = mysqli_query($conn,$sql);
 	
 		if(mysqli_num_rows($result)==0){
-
+			return 0;
 		}else{
-		while($row=mysqli_fetch_array($result)){	
-			//do something as long as there's a remaining row.
+		while($row=mysqli_fetch_array($result)){
 			$rows[] = $row;
-
 		}
 		return $rows;
 	}
 }	
 function loadHistory3($user_ID){
-
 	$conn = myConnect(); 
 	$id = $user_ID;
 	$sql = "SELECT * FROM data_history WHERE student_ID = $id AND score_psychological >= 0 

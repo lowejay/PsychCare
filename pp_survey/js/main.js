@@ -213,5 +213,6 @@ $(document).ready(function() {//mixed custom DOM jQueries
             }
         });
     });
-    $("#autoclick").click();
+    $("#learnerNote").modal('show');
+    $(".autoclick").modal('show');
 });

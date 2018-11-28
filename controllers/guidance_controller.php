@@ -7,6 +7,16 @@
 	if(isset($_GET['this-appointment'])){  
 		removeAppointment($_GET['this-appointment']);
 	}
+	if(isset($_GET['done-appointment'])){  
+		setDoneAppointment($_GET['done-appointment']);
+	}
+	if (isset($_POST['saveProfilePost'])) {
+		saveGuidanceProfile();
+	}
+	if (isset($_POST['changePassPost'])) {
+		changePassword();
+	}
+
 function loadVacantAppointments($user_ID){
 	$conn = myConnect();
 	$id = $user_ID;
@@ -21,7 +31,6 @@ function loadVacantAppointments($user_ID){
 		return $rows;
 	}
 }
-
 function loadOccupiedAppointments($user_ID){
 	$conn = myConnect();
 	$id = $user_ID;
@@ -39,15 +48,13 @@ function loadOccupiedAppointments($user_ID){
 		return $rows;
 	}
 }
-
-
 function loadCompletedAppointments($user_ID){
 	$conn = myConnect();
 	$id = $user_ID;
 	$sql = "SELECT data_student.student_FN, data_student.student_LN, data_appointment.*
 			FROM data_appointment
 			JOIN data_student
-			ON data_student.student_ID=data_appointment.student_ID WHERE emp_ID = $id AND appointment_status ='cancelled'";
+			ON data_student.student_ID=data_appointment.student_ID WHERE emp_ID = $id AND appointment_status !='occupied'";
 	$result = mysqli_query($conn,$sql);
 	if(mysqli_num_rows($result)==0){
 		return 0;
@@ -85,11 +92,10 @@ function addNewSched(){
 	}
 }
 function removeAppointment($id){
-
 	$conn = myConnect();
-	$query = "DELETE FROM data_appointment WHERE appointment_ID = '$id'";
+	$query = "UPDATE data_appointment SET appointment_status='cancelled' WHERE appointment_ID = '$id'";
 	$result = mysqli_query($conn, $query);
-	$str = "Appointment schedule was removed";
+	$str = "Appointment schedule was cancelled";
 
 	if($result){
 	header("Location:../guidance/dashboard.php?appointment=$str");
@@ -99,13 +105,62 @@ function removeAppointment($id){
 }
 function setDoneAppointment($id){
 	$conn = myConnect();
-	$sql = "UPDATE data_appointment SET appointment_status= 2 WHERE appointment_ID='$id'";
+	$sql = "UPDATE data_appointment SET appointment_status='completed' WHERE appointment_ID='$id'";
 	$result = mysqli_query($conn,$sql);
+	$str = "Appointment schedule status updated!";
+
 	if($result){
-		header("Location:../guidance/dashboard.php");
+	header("Location:../guidance/dashboard.php?update-appointment=$str");
 	}else{
-		echo "Unexpected Error! ".mysqli_error($conn);
-	}
+		echo mysqli_error($conn);
+	}	
+}
+function saveGuidanceProfile(){
+ 	$conn = myConnect();
+ 	$emp_ID = $_POST['emp_ID'];
+ 	$fname = $_POST['fname'];
+ 	$lname = $_POST['lname'];
+ 	$email = $_POST['email'];
+	$str = "Profile updated!";
+ 	$sql = "UPDATE data_employee SET emp_FN = '$fname', emp_LN = '$lname', emp_Email = '$email' WHERE emp_ID = '$emp_ID'";
+ 	$result = mysqli_query($conn,$sql);
+	if($result){
+		$_SESSION['emp_FN'] = $fname;
+		$_SESSION['emp_LN'] = $lname;
+		$_SESSION['email'] = $email;
+		
+	header("Location:../guidance/profile.php?update-profile=$str");
+	}else{
+		echo mysqli_error($conn);
+	}	
+}
+function changePassword () {
+	$conn = myConnect();
+	$loginID =  mysqli_real_escape_string($conn,$_POST['emp_ID']);
+	$loginpassword = mysqli_real_escape_string($conn,$_POST['cur_pass']);
+	$newloginpassword = mysqli_real_escape_string($conn,$_POST['new_pass']);
+	$confirmpassword = mysqli_real_escape_string($conn,$_POST['con_pass']);
+	$salt = "sAlTyTeXt";
 	
+		// bai sa pasword i check if sakto ang curent pag dili prompt error. nya ihash pareho sa gi hash nimo sa pag create sa students nya i check if ang new pass ug confirm pass sakto.
+
+	 	$sql = "SELECT * FROM data_employee 
+				WHERE (emp_ID = '$loginID') 
+				AND emp_Password = SHA2(CONCAT('$loginpassword','$salt'),512) LIMIT 1";
+	 	$result = mysqli_query($conn,$sql);
+		if(mysqli_num_rows($result) == 1){
+			
+		if ($newloginpassword != $confirmpassword){
+		$str1="password does not match!";
+		header("Location:../guidance/profile.php?wrong-profileGuidance=$str1");
+		}else if(mysqli_query($conn, $query2 = "UPDATE data_employee 
+									  SET emp_Password = SHA2(CONCAT('$newloginpassword','$salt'),512) 
+									  WHERE emp_ID = '$loginID'")); 
+		$result2 = mysqli_query($conn, $query2);
+		if($result2){
+			$str ="profile updated!";
+			header("Location:../guidance/profile.php?update-profileGuidance=$str");
+		}
+	}
 }
 ?>

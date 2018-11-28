@@ -342,8 +342,8 @@ echo '<script>
 }
 ///////////////////////////////////-END ADMIN ALERTS
 ///////////////////////////////////+STUDENT ALERTS
-if (isset($_GET['add-appointment'])){
-	$mssg = $_GET['add-appointment'];
+if (isset($_GET['adds'])){
+	$mssg = $_GET['adds'];
 echo '<script>
 		  swal({
 		  title: "'.$mssg.'",

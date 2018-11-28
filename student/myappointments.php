@@ -1,16 +1,10 @@
-<?php require('../controllers/session_controller.php'); if(!$_SESSION['student_ID']){header('Location: ../index.php');}?>
-<?php require('../views/header.php');?>
-<?php require('navbars.php');?>
-<?php require('../views/alert.php');?>
-<?php require('../controllers/student_controller.php');
-
-
+<?php require('../controllers/session_controller.php'); if(!$_SESSION['student_ID']){header('Location: ../index.php');}
+require('../views/header.php');require('navbars.php');require('../views/alert.php');
+require('../controllers/student_controller.php');
 $user_ID = $_SESSION['student_ID'];
 $result = loadVacantAppointments($user_ID);if (($result)==0) {$noresult = 0;}
 $result2 = loadMyAppointments($user_ID);if (($result2)==0) {$noresult2 = 0;}
 $result3 = loadDoneAppointments($user_ID);if (($result3)==0) {$noresult3 = 0;}?>
-
-
 <body class="animsition">
     <div class="page-wrapper">
 		<div class="page-container">
@@ -124,7 +118,7 @@ $result3 = loadDoneAppointments($user_ID);if (($result3)==0) {$noresult3 = 0;}?>
                                             <tbody>
                                             <?php if (isset($noresult)){ ?>
                                                 <tr>
-                                                    <td><i class="fas fa-times"></i><strong> No records found</strong></td>
+                                                    <td><i class="fas fa-times"></i><strong> No schedules available</strong></td>
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
@@ -134,7 +128,7 @@ $result3 = loadDoneAppointments($user_ID);if (($result3)==0) {$noresult3 = 0;}?>
                                                 <?php 
                                             }else{ foreach($result as $row){?>
                                                 <tr>
-                                                    <td hidden><?php $id = $row['schedule_ID'] ?></td>
+                                                    <td hidden><?php $id = $row['appointment_ID'] ?></td>
                                                     <td><?php echo $row['emp_FN']." ".$row['emp_LN'] ?></td>
                                                     <td><?php echo date('M d, Y ',strtotime($row['date_available'])) ?></td>
                                                     <td><?php echo date('h:i A ',strtotime($row['time_start'])) ?></td>
