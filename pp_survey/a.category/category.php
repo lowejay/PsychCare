@@ -1,7 +1,6 @@
 <?php require('../controllers/session_controller.php'); 
-if(!$_SESSION['student_ID']){header('Location: ../index.php');}?>
-<?php include('../views/header.php') ?>
-<?php include('../views/category_sidebar.php') ?>
+if(!$_SESSION['student_ID']){header('Location: ../index.php');}
+require('../views/header.php');require('../views/category_sidebar.php'); ?>
 
 <body>
 

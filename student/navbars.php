@@ -52,7 +52,8 @@
                             <a href="myappointments.php" id="btnAppointment">
                                 <i class="fa fa-spinner"></i>My Appointments</a>
                         </li>
-                        <ul class="list-unstyled navbar__list">
+                    </ul>
+                    <ul class="list-unstyled navbar__list">
                         <li class="nav-item">
                             <a href="history.php" id="btnHistory">
                                 <i class="fa fa-history"></i>Test Result History</a>

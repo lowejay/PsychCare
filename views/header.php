@@ -3,7 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Psychcare Dashboard</title>
         <!-- Fontfaces CSS-->
+        <link href="../fonts/favicon.ico" rel="shortcut icon" media="all" >
         <link href="../css/font-face.css" rel="stylesheet" media="all">
         <link href="../vendor/font-awesome-5/css/css/all.css" rel="stylesheet">
         <link href="../vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">

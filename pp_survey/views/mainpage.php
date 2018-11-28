@@ -1,5 +1,5 @@
 <?php require('../controllers/session_controller.php');?>
-<?php if(!isset($_SESSION['student_ID'])){unsetSesh();}?>
+<?php if(!isset($_SESSION['student_ID'])){$d =1; unsetSesh();}else{header('Location:../a.category/category.php');}?>
 <?php require('header.php'); ?>
 <?php require('sidebar.php'); ?>
 <body>
@@ -285,7 +285,8 @@
 		</div>
 	</div>
 	<!--MODAL LOGIN-->
-		<div class="modal fade autoclick" id="staticModal" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true">
+	<?php if(isset($d)){$c='autoclick';}?>
+		<div class="modal fade <?= $c?>" id="staticModal" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-md" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
