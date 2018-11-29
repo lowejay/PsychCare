@@ -1629,7 +1629,6 @@
 })(jQuery);
 
 //////////////////////////////// CUSTOM JAVASCRIPTS ////////////////////////////////////////////////////////
-
 $("#modal-body").on("load", function() {
     var val = $(this).val();
     $(".types").hide().find('input:text').val(''); // hide and empty
@@ -1825,7 +1824,6 @@ function validateAppointmentTime() {
     });
 
 }
-
 $(document).ready(function() {
     $("select").select2({
         placeholder: "Select below"

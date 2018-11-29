@@ -1,16 +1,10 @@
-<?php require('../controllers/session_controller.php'); 
-if(!$_SESSION['student_ID']){header('Location: ../index.php');}?>
-<?php require('../controllers/learner_controller.php');
-unsetln(); ?>
-<?php require('../views/header.php') ?>
-<?php require('../views/category_sidebar.php');
+<?php require('../controllers/session_controller.php');if(!$_SESSION['student_ID']){header('Location: ../index.php');}
+require('../controllers/learner_controller.php');unsetln();
+require('../views/header.php');require('../views/category_sidebar.php');
 $s1 = learnerQ(1); 
 $s2 = learnerQ(2);
 $s3 = learnerQ(3);
-
-$counter=1;
-?>
-
+$counter=1;?>
 <body>
 	<div id="colorlib-main">
 		<div class="colorlib-work">
@@ -153,7 +147,6 @@ $counter=1;
 			</div>
 		</div>
 	</div>
-	<!--END BODY-->
     <div class="modal fade" id="staticModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md m-t-100" role="document">
             <div class="modal-content">

@@ -1,5 +1,5 @@
 <?php require('../controllers/session_controller.php'); if($_SESSION['emp_Privilege']!=1){header('Location: ../index.php');}?>
-<?php require('../views/header.php');?>
+<?php require('../views/header.php');require('../views/alert.php');?>
 <body class="animsition">
     <div class="page-wrapper">
         <div class="page-container p-l-0">
@@ -150,9 +150,7 @@
                                                 <input type="file" class="form-control-file d-inline" name="img" value="#" required>
                                             </div>
                                             <div>
-                                                <a href="../views/profile.php?id=<?php echo $row['schedule_ID']?>">
-                                                    <button class = "btn btn-lg btn-info au-btn--block" name="SaveButton" >Save Changes</button>
-                                                </a>
+                                                <button type="submit" class="btn btn-lg btn-info au-btn--block" name="SaveButton">Save Changes</button>
                                             </div>
                                         </form>
                                     </div>
@@ -205,9 +203,6 @@
                     </div>
                 </div>
             </div>
-
-        
-
         </div>
     </div>
 </body>

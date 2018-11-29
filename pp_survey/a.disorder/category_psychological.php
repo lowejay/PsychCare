@@ -16,8 +16,8 @@ if(!$_SESSION['student_ID']){header('Location: ../index.php');}?>
 					   			<div class="col-md-8 col-md-offset-2 col-md-pull-2 js-fullheight slider-text">
 					   				<div class="slider-text-inner">
 					   					<div class="desc">
-						   					<h1>Psychological Disorder</h1>
-						   					<h2>You Talk, We Listen</h2>
+						   					<h1>Psychological Test</h1>
+						   					<h2>A test for depression <br>You Talk, We Listen</h2>
 						   					<div class="row">
 												<div class="col-md-8 col-md-offset-2 col-md-pull-2">
 													<a href="test_disorder.php" button type="button" name="autoclick"  id="autoclick" class="btn btn-primary btn btn-md">

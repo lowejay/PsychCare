@@ -1,7 +1,6 @@
-<?php require('../controllers/session_controller.php');?>
-<?php if(!isset($_SESSION['student_ID'])){$d =1; unsetSesh();}else{header('Location:../a.category/category.php');}?>
-<?php require('header.php'); ?>
-<?php require('sidebar.php'); ?>
+<?php require('../controllers/session_controller.php');
+if(!isset($_SESSION['student_ID'])){$d =1; unsetSesh();}else{header('Location:../a.category/category.php');}
+require('header.php');require('sidebar.php');require('alert.php');?>
 <body>
 	<div id="colorlib-page">
 	<!--HEADER SLIDER-->

@@ -374,7 +374,7 @@ body.offcanvas {
 .colorlib-services,
 .colorlib-contact {
   padding-top: 4em;
-  padding-bottom: 9em;
+  padding-bottom: 7em;
   clear: both;
   width: 100%;
   display: block; }
@@ -1092,7 +1092,10 @@ body.offcanvas {
 
 .js .animate-box {
   opacity: 0; }
-
+  
+.p-b-0 {
+    padding-bottom: 0px;
+}
 #sticky_item {
   overflow: hidden;
   -webkit-transition: 0.3s;

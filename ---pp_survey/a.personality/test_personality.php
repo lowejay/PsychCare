@@ -1,10 +1,9 @@
-<?php require('../controllers/session_controller.php'); 
-if(!$_SESSION['student_ID']){header('Location: ../index.php');}?>
-<?php require('../controllers/personality_controller.php') ?>
-<?php include('../views/header.php') ?>
-<?php include('../views/category_sidebar.php') ?>
+<?php require('../controllers/session_controller.php');if(!$_SESSION['student_ID']){header('Location: ../index.php');}
+require('../controllers/personality_controller.php');
+require('../views/header.php');
+require('../views/category_sidebar.php');
 
-<?php $result = loadPersonality(); $counter=1?>
+$result = loadPersonality(); $counter=1?>
 
 <body>
 
