@@ -11,7 +11,7 @@ $score = $_GET['score'];
 		<div id="colorlib-main">
 			<div class="colorlib-about">
 				<div class="container-fluid">
-	<?php if ($score >= 6 && $score <=20 ){
+	<?php if ($score >= 38 && $score <=50 ){
 		?>
 					<div class="row">
 						<div class="col-md-6">
@@ -62,9 +62,9 @@ $score = $_GET['score'];
 						        <div class="panel-body">
 						            <p>SCORE BREAKDOWN!</p>
 						            	<ul>
-											<li>If your score ranged between -6 to -20, Introvert</li>
-											<li>If your score ranged between -5 to 5, Ambivert</li>
-											<li>If your score ranged between 6 to 20, Extravert</li>
+											<li>If your score ranged between 0 to 16, Introvert</li>
+											<li>If your score ranged between 17 to 37, Ambivert</li>
+											<li>If your score ranged between 38 to 50, Extravert</li>
 										</ul>	
 						        </div>
 						    </div>
@@ -74,7 +74,7 @@ $score = $_GET['score'];
 							</div>
 						</div>
 					</div>
-<?php  }else if ($score >= -5 && $score <=5 ){?>
+<?php  }else if ($score >=17  && $score <=37 ){?>
 					<div class="row">
 						<div class="col-md-6">
 							<div class="about-img animate-box" data-animate-effect="fadeInLeft" style="background-image: url(../images/disorder/personality_introvert.jpg);">
@@ -129,9 +129,9 @@ $score = $_GET['score'];
 						        <div class="panel-body">
 						            <p>SCORE BREAKDOWN!</p>
 						            	<ul>
-											<li>If your score ranged between -6 to -20, Introvert</li>
-											<li>If your score ranged between -5 to 5, Ambivert</li>
-											<li>If your score ranged between 6 to 20, Extravert</li>
+											<li>If your score ranged between 0 to 16, Introvert</li>
+											<li>If your score ranged between 17 to 37, Ambivert</li>
+											<li>If your score ranged between 38 to 50, Extravert</li>
 										</ul>	
 						        </div>
 						    </div>
@@ -141,7 +141,7 @@ $score = $_GET['score'];
 							</div>
 						</div>
 					</div>
-<?php  }else if ($score >= -20 && $score <= -6 ){?>
+<?php  }else if ($score >= 0 && $score <= 16 ){?>
 					<div class="row">
 						<div class="col-md-6">
 							<div class="about-img animate-box" data-animate-effect="fadeInLeft" style="background-image: url(../images/disorder/personality_introvert.jpg);">
@@ -190,9 +190,9 @@ $score = $_GET['score'];
 						        	<div class="panel-body">
 						            <p>SCORE BREAKDOWN!</p>
 						            	<ul>
-											<li>If your score ranged between -6 to -20, Introvert</li>
-											<li>If your score ranged between -5 to 5, Ambivert</li>
-											<li>If your score ranged between 6 to 20, Extravert</li>
+											<li>If your score ranged between 0 to 16, Introvert</li>
+											<li>If your score ranged between 17 to 37, Ambivert</li>
+											<li>If your score ranged between 38 to 50, Extravert</li>
 										</ul>	
 						       		</div>
 						    	</div>

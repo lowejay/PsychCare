@@ -10,6 +10,8 @@ function setStuSess($i,$fn,$ln,$ue,$uph,$upr,$p){
 	$_SESSION["user_Privilege"] =$upr;
 	$_SESSION["student_Password"] =$p;
 	$_SESSION["emp_Privilege"] = -1;
+	
+
 }
 
 function unsetSesh(){

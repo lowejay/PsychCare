@@ -1,10 +1,6 @@
-<?php require('../controllers/session_controller.php'); 
-if(!$_SESSION['student_ID']){header('Location: ../index.php');}?>
-<?php require('../views/header.php'); ?>
-<?php require('../views/category_sidebar.php'); ?>
-
+<?php require('../controllers/session_controller.php');if(!$_SESSION['student_ID']){header('Location: ../index.php');}
+require('../views/header.php');require('../views/category_sidebar.php'); ?>
 <body>
-	<!--CATEGORY-->
 	<div id="colorlib-main">
 		<div class="colorlib-work">
 			<div class="container-fluid">
@@ -21,7 +17,7 @@ if(!$_SESSION['student_ID']){header('Location: ../index.php');}?>
 								<div class="desc">
 									<div class="con">
 										<h1 style="color: white;">Psychological Test</h1>
-										<h3 style="color: white;">Let's talk about Mental Health </h3>
+										<h3 style="color: white;">A test for depression <br>You Talk, We Listen</h3>
 										<span class="read-more">Begin! <i class="icon-arrow-right3"></i></span>
 									</div>
 								</div>
@@ -71,6 +67,5 @@ if(!$_SESSION['student_ID']){header('Location: ../index.php');}?>
 			</div>
 		</div>
 	</div>
-	<!--END CATEGORY-->
 </body>
 <?php require('../views/footer.php'); ?>

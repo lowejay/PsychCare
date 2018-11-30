@@ -1,7 +1,7 @@
 <?php require('../controllers/session_controller.php'); 
 if(!$_SESSION['student_ID']){header('Location: ../index.php');}?>
 <?php  
-$lr = $_GET['result']; 
+$lr = $_GET['result'];
 ?>
 <?php include('../views/header.php') ?>
 <?php include('../views/category_sidebar.php') ?>
@@ -15,22 +15,21 @@ $lr = $_GET['result'];
 		?>
 					<div class="row">
 						<div class="col-md-6">
-							<div class="about-img animate-box" data-animate-effect="fadeInLeft" style="background-image: url(../images/disorder/personality_extravert.jpg);">
-								<div class="about-img-2 animate-box" data-animate-effect="fadeInRight" style="background-image: url(../images/disorder/personality_extravert2.jpg);"></div>
+							<div class="about-img animate-box" data-animate-effect="fadeInLeft" style="background-image: url(../images/disorder/learn3.jpg);">
+								<div class="about-img-2 animate-box" data-animate-effect="fadeInRight" style="background-image: url(../images/disorder/learn1.jpg);"></div>
 							</div>
 						</div>
 						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
 							<div class="about-desc">
 								<span class="heading-meta">This is who you are!</span>
-								<h3>You scored a total of <?php echo $score; ?> point(s)</h3>
-								<p>This is the results from your exam.</p>
+								<h3>You are a Visual Learner!</h3>
 							</div>
 						<div class="fancy-collapse-panel">
 								<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 									<div class="panel panel-default">
 									    <div class="panel-heading" role="tab" id="headingOne">
 									        <h4 class="panel-title">
-									            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">YOU ARE AN EXTRAVERT
+									            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Visual Learner
 									            </a>
 									        </h4>
 									    </div>
@@ -38,34 +37,15 @@ $lr = $_GET['result'];
 						         <div class="panel-body">
 						            <div class="row">
 							      		<div>
-							      			<p> You are imaginitive! And very experimental. You are the kind of person that does things in a different way! Extraverts tend to enjoy human interactions and to be enthusiastic, talkative, assertive, and gregarious. Extraverts are energized and thrive off being around other people. 
+							      			<p> Learns by seeing or watching demonstrations. Recognizes words by sight; relies on configurations of words. Likes description; sometimes stops  reading to stare into space and imagine scene; intense concentration. Tends to be a good, particularly when young; spacing and size are good; appearance is important. Remember faces, but forgets names; writes things down; takes notes.
 							      			<br>
 							      			<br>
-							      			An extraverted person is likely to enjoy time spent with people and find less reward in time spent alone. They tend to be energized when around other people, and they are more prone to boredom when they are by themselves.
+							      			Vivid imagination; thinks in pictures; visualizes in detail. Unaware of sounds; distracted by movement. Deliberate; plans in advance; organizes thoughts by writing them; lists problems. Stares or doodles; finds something. Looks around or examines structure
 							      			<br>
 							      			<br>
 							      			Feel free to take the test again! </p>
 							      		</div>
 							      	</div>
-						        </div>
-						    </div>
-						</div>		
-						<div class="panel panel-default">
-						    <div class="panel-heading" role="tab" id="headingTwo">
-						        <h4 class="panel-title">
-						            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" 
-						            aria-controls="collapseTwo">Wanna know the score breakdown?
-						            </a>
-						        </h4>
-						    </div>
-						    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-						        <div class="panel-body">
-						            <p>SCORE BREAKDOWN!</p>
-						            	<ul>
-											<li>If your score ranged between -6 to -20, Introvert</li>
-											<li>If your score ranged between -5 to 5, Ambivert</li>
-											<li>If your score ranged between 6 to 20, Extravert</li>
-										</ul>	
 						        </div>
 						    </div>
 						</div>
@@ -77,39 +57,32 @@ $lr = $_GET['result'];
 <?php  }else if ($lr == 'Auditory'){?>
 					<div class="row">
 						<div class="col-md-6">
-							<div class="about-img animate-box" data-animate-effect="fadeInLeft" style="background-image: url(../images/disorder/personality_introvert.jpg);">
-							<div class="about-img-2 animate-box" data-animate-effect="fadeInRight" style="background-image: url(../images/disorder/personality_extravert.jpg);">
+							<div class="about-img animate-box" data-animate-effect="fadeInLeft" style="background-image: url(../images/disorder/learn6.jpg);">
+							<div class="about-img-2 animate-box" data-animate-effect="fadeInRight" style="background-image: url(../images/disorder/learn5.jpg);">
 							</div>
 							</div>
 						</div>
 							<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
 							<div class="about-desc">
 								<span class="heading-meta">Well that's rare!</span>
-								<h3>You scored a total of <?php echo $score; ?> point(s)</h3>
-								<p>This is the results from your exam.</p>
+								<h3>You are an Auditory Learner</h3>
 							</div>
 							<div class="fancy-collapse-panel">
 								<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 									<div class="panel panel-default">
 									    <div class="panel-heading" role="tab" id="headingOne">
 									        <h4 class="panel-title">
-									            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">AMBIVERT!</a>
+									            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Auditory Learner</a>
 									        </h4>
 									    </div>
 						    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 						         <div class="panel-body">
 						            <div class="row">
 							      		<div>
-							      			<p>Ambiverts have a distinct advantage over true introverts and extroverts. 
-							      			   Because their personality doesn’t lean too heavily in either direction, 
-							      			   they have a much easier time adjusting their approach to people based on 
-							      			   the situation. This enables them to connect more easily, and more deeply, 
-							      			   with a wider variety of people.
+							      			<p>Learns through verbal instructions from self or others. Uses a phonics approach has auditory word attack skills. Enjoys dialogue and plays; avoids lengthy descriptions; unaware of illustrations; moves lips or sub-vocalizes. Has more difficulty learning in initial stages; tends to write lightly. Remembers names, but forgets faces; remembers by auditory repetition.
 							      			<br>
 							      			<br>
-							      				An ambivert is moderately comfortable with groups and social interaction, 
-							      				but also relishes time alone, away from a crowd. In simpler words, an ambivert 
-							      				is a person whose behaviour changes according to the situation he/she is in.
+							      				Easily distracted by sounds. Talks problems out; tries solutions verbally or sub-vocally; talks self through problems. Hums, talks to self, or talks to others. Talks about situation; discusses pros and cons of what to do.
 							      			<br>
 							      			<br>
 							      				Feel free to take the test again!</p>
@@ -117,26 +90,7 @@ $lr = $_GET['result'];
 							      	</div>
 						         </div>
 						    </div>
-								<div class="panel panel-default">
-									    <div class="panel-heading" role="tab" id="headingTwo">
-									        <h4 class="panel-title">
-									            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" 
-									            aria-controls="collapseTwo">Wanna know the score breakdown?
-									            </a>
-									        </h4>
-									    </div>
-						    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-						        <div class="panel-body">
-						            <p>SCORE BREAKDOWN!</p>
-						            	<ul>
-											<li>If your score ranged between -6 to -20, Introvert</li>
-											<li>If your score ranged between -5 to 5, Ambivert</li>
-											<li>If your score ranged between 6 to 20, Extravert</li>
-										</ul>	
-						        </div>
-						    </div>
-							</div>
-									<br><p><a href="test_personality.php" class="btn btn-primary">Take Another Screen</a></p>
+									<br><p><a href="test_learner.php" class="btn btn-primary">Take Another Screen</a></p>
 								</div>
 							</div>
 						</div>
@@ -144,22 +98,21 @@ $lr = $_GET['result'];
 <?php  }else if ($lr == 'Kinesthetic'){?>
 					<div class="row">
 						<div class="col-md-6">
-							<div class="about-img animate-box" data-animate-effect="fadeInLeft" style="background-image: url(../images/disorder/personality_introvert.jpg);">
-								<div class="about-img-2 animate-box" data-animate-effect="fadeInRight" style="background-image: url(../images/disorder/personality_introvert2.jpg);"></div>
+							<div class="about-img animate-box" data-animate-effect="fadeInLeft" style="background-image: url(../images/disorder/learn9.jpg);">
+								<div class="about-img-2 animate-box" data-animate-effect="fadeInRight" style="background-image: url(../images/disorder/learn8.jpg);"></div>
 							</div>
 						</div>
 						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
 							<div class="about-desc">
 								<span class="heading-meta">Who would've thought?</span>
-								<h3>You scored a total of <?php echo $score; ?> point(s)</h3>
-								<p>This is the results from your exam.</p>
+								<h3>You are a Kinesthetic Learner</h3>
 							</div>
 							<div class="fancy-collapse-panel">
 								<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 									<div class="panel panel-default">
 									    <div class="panel-heading" role="tab" id="headingOne">
 									        <h4 class="panel-title">
-									            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">INTROVERT
+									            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">KINESTHETIC LEARNER
 									            </a>
 									        </h4>
 									    </div>
@@ -167,10 +120,10 @@ $lr = $_GET['result'];
 						         <div class="panel-body">
 						            <div class="row">
 							      		<div>
-							      			<p>An introvert prefers to spend time alone in order to recharge their inner being. An introvert may appear to be shy to others, but that is not necessarily an accurate label. Being among groups of friends, family and even strangers can be wonderfully stimulating and joyous occasions. 
+							      			<p>Learns by doing and direct involvement. Often is a poor speller; writes words to determine if they “feel” right. Prefers stories where action occurs early; fidgets while reading; not an avid reader. Good initially, but deteriorates when space becomes smaller; pushes harder on writing instrument. Remembers best what was done, but not what was seen or talked about.
 							      			<br>
 							      			<br>
-							      			Interacting with people and attention to multiple sources of stimuli tends to draw down an introvert's energy causing them to eventually withdraw to spend time alone to re-energize. Small talk and pointless conversations tend to draw down an introvert's energy rapidly. 
+							      			Imagery not important; images that do occur are accompanied by movement. Not attentive to visual or auditory presentation so may seem distracted. Attacks problem physically; impulsive; often selects solution involving greatest activity. Fidgets or finds reasons to move. Tries things out; touches, feels or manipulates.
 							      			<br>
 							      			<br>
 							      			Feel free to take the test again! </p>										      		
@@ -178,26 +131,7 @@ $lr = $_GET['result'];
 							      	</div>
 						         </div>    
 						    </div> 
-						    	<div class="panel panel-default">
-										    <div class="panel-heading" role="tab" id="headingTwo">
-										        <h4 class="panel-title">
-										            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" 
-										            aria-controls="collapseTwo">Wanna know the score breakdown?
-										            </a>
-										        </h4>
-										    </div>
-						    	<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-						        	<div class="panel-body">
-						            <p>SCORE BREAKDOWN!</p>
-						            	<ul>
-											<li>If your score ranged between -6 to -20, Introvert</li>
-											<li>If your score ranged between -5 to 5, Ambivert</li>
-											<li>If your score ranged between 6 to 20, Extravert</li>
-										</ul>	
-						       		</div>
-						    	</div>
-								</div>
-						    		<p><br><a href="test_personality.php" class="btn btn-primary">Take Another Screen</a></p>
+						    	<p><br><a href="test_learner.php" class="btn btn-primary">Take Another Screen</a></p>
 								</div>
 							</div>
 						</div>

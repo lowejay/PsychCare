@@ -16,12 +16,12 @@ function personalityAnswers () {
 	unset($_POST['student_id']);
 
 	foreach($_POST as $key => $value)	{
-    $result = $result + (int)$value;
+    $score = $score + (int)$value;
 	}
-	$sql = "INSERT INTO data_history(student_ID, total_personality) VALUES ('$student_id', '$result')";
+	$sql = "INSERT INTO data_history(student_ID, score_personality, history_date) VALUES ('$student_id', '$result', NOW())";
 	$result = mysqli_query($conn,$sql);
 	if($result){
-		echo "success!";
+		header("Location:../a.personality/result.php?score=$score");
 	}else{
 		echo "Unexpected Error! ".mysqli_error($conn);
 	}

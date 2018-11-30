@@ -1,37 +1,38 @@
 <header class="header-mobile d-block d-lg-none">
-            <div class="header-mobile__bar">
-                <div class="container-fluid">
-                    <div class="header-mobile-inner">
-                        <a class="logo" href="dashboard.php">
-                            <img src="../images/logo-landscape.png" width="165" height="50"  alt="PsychCare" />
-                        </a>
-                        <button class="hamburger hamburger--slider" type="button">
-                            <span class="hamburger-box">
-                                <span class="hamburger-inner"></span>
-                            </span>
-                        </button>
-                    </div>
-                </div>
+    <div class="header-mobile__bar">
+        <div class="container-fluid">
+            <div class="header-mobile-inner">
+                <a class="logo" href="dashboard.php">
+                    <img src="../images/logo-landscape.png" width="165" height="50"  alt="PsychCare" />
+                </a>
+                <button class="hamburger hamburger--slider" type="button">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
             </div>
-            <nav class="navbar-mobile">
-                <div class="container-fluid">
-                    <ul class="navbar-mobile__list list-unstyled">
-                            <a href="dashboard.php" id="mbtnDashboard">
-                                <i class="fas fa-tachometer-alt"></i>Home</a>
-                        </li>
-                        <li>
-                            <a href="myappointments.php" id="mbtnAppointment">
-                                <i class="fa fa-spinner"></i>My Appointments</a>
-                        </li>
-                        <li>
-                            <a href="history.php" id="mbtnHistory">
-                                <i class="fas fa-pencil-square-o"></i>History</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <!-- END HEADER MOBILE-->
+        </div>
+    </div>
+    <nav class="navbar-mobile">
+        <div class="container-fluid">
+            <ul class="navbar-mobile__list list-unstyled">
+                <li>
+                    <a href="dashboard.php" id="mbtnDashboard">
+                        <i class="fas fa-tachometer-alt"></i>Home</a>
+                </li>
+                <li>
+                    <a href="myappointments.php" id="mbtnAppointment">
+                        <i class="fa fa-spinner"></i>My Appointments</a>
+                </li>
+                <li>
+                    <a href="history.php" id="mbtnHistory">
+                        <i class="fas fa-pencil-square-o"></i>Test Result History</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<!-- END HEADER MOBILE-->
 
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
@@ -51,10 +52,11 @@
                             <a href="myappointments.php" id="btnAppointment">
                                 <i class="fa fa-spinner"></i>My Appointments</a>
                         </li>
-                        <ul class="list-unstyled navbar__list">
+                    </ul>
+                    <ul class="list-unstyled navbar__list">
                         <li class="nav-item">
                             <a href="history.php" id="btnHistory">
-                                <i class="fa fa-history"></i>History</a>
+                                <i class="fa fa-history"></i>Test Result History</a>
                         </li>
                     </ul>
                 </nav>

@@ -1,5 +1,5 @@
 <?php require('../controllers/session_controller.php'); if($_SESSION['emp_Privilege']!=1){header('Location: ../index.php');}?>
-<?php include('../controllers/guidance_controller.php');
+<?php require('../controllers/guidance_controller.php');
 $emp_ID = $_SESSION['emp_ID'];
 $result =  loadVacantAppointments($emp_ID);if (($result)==0) {$noresult = 0;}
 $result2 = loadOccupiedAppointments($emp_ID);if (($result2)==0) {$noresult2 = 0;}
@@ -153,7 +153,7 @@ $result3 = loadCompletedAppointments($emp_ID);if (($result3)==0) {$noresult3 = 0
                                                     <th style="background-color: yellowgreen;">Date</th>
                                                     <th style="background-color: yellowgreen;">Time start</th>
                                                     <th style="background-color: yellowgreen;">Time end</th>
-                                                    <th style="background-color: yellowgreen;text-align: center;">Student Name</th>
+                                                    <th style="background-color: yellowgreen;text-align:center;">Student Name</th>
                                                     <th style="background-color: yellowgreen;">Status</th>
                                                     <th style="background-color: yellowgreen;"></th>
                                                 </tr>
@@ -161,7 +161,9 @@ $result3 = loadCompletedAppointments($emp_ID);if (($result3)==0) {$noresult3 = 0
                                             <tbody>
                                             <?php if (isset($noresult2)){ ?>
                                                 <tr>
-                                                    <td><a href="#add" id="mbtnAppointment"><i class="fas fa-user-times"></i><strong>No occupied schedules today </strong></a></td>
+                                                    <td><a href="#add" id="mbtnAppointment"><i class="fas fa-user-times"></i><strong> No records found </strong></a></td>
+                                                    <td></td>
+                                                    <td></td>
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
@@ -169,6 +171,7 @@ $result3 = loadCompletedAppointments($emp_ID);if (($result3)==0) {$noresult3 = 0
                                                 <?php 
                                             }else{ foreach($result2 as $row2){?>
                                                 <tr>
+                                                    <td hidden><?php $id = $row2['appointment_ID']; ?></td>
                                                     <td><?php echo date('M d, Y ',strtotime($row2['date_available'])) ?></td>
                                                     <td><?php echo date('h:i A ',strtotime($row2['time_start'])) ?></td>
                                                     <td><?php echo date('h:i A ',strtotime($row2['time_end'])) ?></td>
@@ -176,8 +179,8 @@ $result3 = loadCompletedAppointments($emp_ID);if (($result3)==0) {$noresult3 = 0
                                                     <td><?php echo $row2['appointment_status']?></td>
                                                     <td>
                                                         <div class="table-data-feature">
-                                                        <button class="item btn-danger" onclick=""><i class="zmdi zmdi-close"></i> </button>
-                                                        <button class="item btn-success" onclick=""><i class="zmdi zmdi-check"></i></button>
+                                                        <button class="item btn-danger" data-toggle="tooltip" data-placement="top" title="Cancel" onclick="removethisAppointment(<?php echo $id?>)"><i class="zmdi zmdi-close"></i> </button>
+                                                        <button class="item btn-success" data-toggle="tooltip" data-placement="top" title="Complete" onclick="updatethisAppointment(<?php echo $id?>)"><i class="zmdi zmdi-check"></i></button>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -201,12 +204,14 @@ $result3 = loadCompletedAppointments($emp_ID);if (($result3)==0) {$noresult3 = 0
                                                     <th style="background-color: skyblue;">Time start</th>
                                                     <th style="background-color: skyblue;">Time end</th>
                                                     <th style="background-color: skyblue;">Student Name</th>
+                                                    <th style="background-color: skyblue;">Status</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                             <?php if (isset($noresult3)){ ?>
                                                 <tr>
                                                     <td><i class="fas fa-times"></i><strong> No records found</strong></td>
+                                                    <td></td>
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
@@ -218,6 +223,7 @@ $result3 = loadCompletedAppointments($emp_ID);if (($result3)==0) {$noresult3 = 0
                                                     <td><?php echo date('h:i A ',strtotime($row3['time_start'])) ?></td>
                                                     <td><?php echo date('h:i A ',strtotime($row3['time_end'])) ?></td>
                                                     <td><?php echo $row3['student_FN']." ".$row3['student_LN'] ?></td>
+                                                    <td><?php echo $row3['appointment_status']?></td>
                                                 </tr>
                                                 <?php }} ?>
                                             </tbody>

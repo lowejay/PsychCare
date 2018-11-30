@@ -1,14 +1,13 @@
-<?php require('../controllers/session_controller.php'); if($_SESSION['emp_Privilege']!=2){header('Location: ../index.php');}?>
-<?php require('../controllers/teacher_controller.php');
-$emp_ID = $_SESSION['emp_ID'];
-$classid = $_GET['classid'];
-$student = loadClassStudent($emp_ID);if (($student)==0) {$nostudent = 0;}
-$class = loadClassSched($emp_ID);if (($class)==0) {$noclass = 0;}?>
-
-<?php require('../views/header.php');require('navbars.php');require('../views/alert.php');?>
+<?php 
+require('../controllers/session_controller.php');if($_SESSION['emp_Privilege']!=2){header('Location: ../index.php');}
+require('../views/header.php');require('navbars.php');require('../views/alert.php');
+require('../controllers/teacher_controller.php');
+    $emp_ID = $_SESSION['emp_ID'];
+    $classid = $_GET['classid'];
+    $student = loadClassStudent($emp_ID);if (($student)==0) {$nostudent = 0;}
+    $class = loadClassSched($emp_ID);if (($class)==0) {$noclass = 0;}?>
 <body class="animsition">
     <div class="page-wrapper">
-        <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
             <header class="header-desktop">
@@ -98,11 +97,8 @@ $class = loadClassSched($emp_ID);if (($class)==0) {$noclass = 0;}?>
                     </div>
                 </div>
             </header>
-    		<!-- HEADER DESKTOP-->
-            
-    		<!-- MAIN CONTENT-->     
-        	<!-- DATA TABLE -->
-            <div class="main-content p-t-100">
+    		<!-- END HEADER DESKTOP-->
+            <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="row">
@@ -192,7 +188,7 @@ $class = loadClassSched($emp_ID);if (($class)==0) {$noclass = 0;}?>
                         <div class="modal-header">
                             <h5 class="modal-title">Add Student</h5>
                         </div>
-	                    <div class="modal-body">
+	                    <div class="modal-body p-t-0">
 	                        <div class="row">
 	                            <table class="table data-table">
 	                            	<?php if(($studentmodal)==0){$nomstudent = 0;}if (isset($nomstudent)){ ?>
