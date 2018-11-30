@@ -395,5 +395,18 @@ echo '<script>
 </script>';
 }
 ///////////////////////////////////-END STUDENT ALERTS
+if (isset($_GET['x'])){
+echo '<script>
+		swal({
+		text: "Please try again.",
+		title: "Incorrect login credentials!",
+		icon: "error",
+		button: "Ok",
+		})
+		.then(function() {
+    	window.history.pushState("", "", "/psychcare/views/login.php");
+});
+</script>';
+}
 
 ?>

@@ -3,9 +3,9 @@
 <?php require('navbars.php') ?>
 <?php require('../controllers/student_controller.php');
 $user_ID = $_SESSION['student_ID'];
-$result1 = loadHistory1($user_ID);if (($result1)==0) {$noresult1 = 0;}
-$result2 = loadHistory2($user_ID);if (($result2)==0) {$noresult2 = 0;}
-$result3 = loadHistory3($user_ID);if (($result3)==0) {$noresult3 = 0;}
+$result1 = loadHistory1($user_ID);if (($result1)==0) {$noresult1 = 0;}//learner
+$result2 = loadHistory2($user_ID);if (($result2)==0) {$noresult2 = 0;}//personality
+$result3 = loadHistory3($user_ID);if (($result3)==0) {$noresult3 = 0;}//psychological
 ?>
 <body class="animsition">
     <div class="page-wrapper">
@@ -62,21 +62,24 @@ $result3 = loadHistory3($user_ID);if (($result3)==0) {$noresult3 = 0;}
                 <div class="section__content section__content--p30 p-t-40">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-10">
                                 <div class="table-data__tool">
+                                    <h3>Categories: </h3>
                                     <div class="table-data__tool-left">
                                         <div class="rs-select2--light">
-                                             <button class="au-btn au-btn-icon au-btn--orange au-btn--small" data-toggle="collapse" data-target="#pd">Psychological Test</button>
+                                            <button class="au-btn au-btn-icon au-btn--orange au-btn--small hbtn" type="button" value="pd">Psychological Test</button>
                                         </div>
                                         <div class="rs-select2--light">
-                                           <button class="au-btn au-btn-icon au-btn--orange au-btn--small" href="../student/historyPersonality.php"> Personality Test</button>
+                                            <button class="au-btn au-btn-icon au-btn--orange au-btn--small hbtn" type="button" value="pt"> Personality Test</button>
                                         </div>
                                         <div class="rs-select2--light">
-                                           <button class="au-btn au-btn-icon au-btn--orange au-btn--small" href="../student/historyLearner.php">Types of Learner</button>
+                                            <button class="au-btn au-btn-icon au-btn--orange au-btn--small hbtn" type="button" value="tl">Types of Learner</button>
                                         </div>
                                     </div>
                                 </div>
-                                <h4 class="p-b-20">Result for:  Psychological Disorder</h3>
+                            </div>
+                            <div id="PD" class="col-12 m-b-30">
+                                <h3 class="p-b-20">Result for:  Psychological Disorder</h3>
                                 <div class="table-responsive table-responsive-data2">
                                     <table class="table table-data2">
                                         <thead>
@@ -97,15 +100,94 @@ $result3 = loadHistory3($user_ID);if (($result3)==0) {$noresult3 = 0;}
                                                 <td></td>
                                             </tr>
                                         <?php }else{ 
-                                            foreach ($result3 as $row) {?> 
+                                            foreach ($result3 as $row3) {?> 
                                             <tr>
-                                                <td><?php echo $row['student_ID'];?></td>
-                                                <td><?php echo date('M d, Y ',strtotime($row['history_date']))?></td>
-                                                <td><?php echo $row['score_psychological'];?></td>
+                                                <td><?php echo $row3['student_ID'];?></td>
+                                                <td><?php echo date('M d, Y ',strtotime($row3['history_date']))?></td>
+                                                <td><?php echo $row3['score_psychological'];?></td>
                                                 <td>
                                                     <div class="table-data-feature" style="justify-content: center !important;">
-                                                        <button class="item" data-placement="top" title="View" type="button" data-id="IDr" data-toggle="modal" data-target="#viewModal">
-                                                                <i class="zmdi zmdi-eye"></i>
+                                                        <button class="item" data-placement="top" title="View" type="button" data-id="IDr" data-toggle="modal" data-target="#viewModal"><i class="zmdi zmdi-eye"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="spacer"></tr> 
+                                              <?php  }} ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div id="PT" class="col-12 m-b-30">
+                                <h3 class="p-b-20">Result for:  Personality Test</h3>
+                                <div class="table-responsive table-responsive-data2">
+                                    <table class="table table-data2">
+                                        <thead>
+                                            <tr>
+                                                <th>ID Number</th>
+                                                <th>Date</th>
+                                                <th>Score</th>
+                                                <th>result View</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php if (isset($noresult2)){ ?>
+                                            <tr>
+                                                <td><i class="fas fa-times"></i><strong> No records found</strong></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        <?php }else{ 
+                                            foreach ($result2 as $row2) {?> 
+                                            <tr>
+                                                <td><?php echo $row2['student_ID'];?></td>
+                                                <td><?php echo date('M d, Y ',strtotime($row2['history_date']))?></td>
+                                                <td><?php echo $row2['score_personality'];?></td>
+                                                <td>
+                                                    <div class="table-data-feature" style="justify-content: center !important;">
+                                                        <button class="item" data-placement="top" title="View" type="button" data-id="IDr" data-toggle="modal" data-target="#viewModal"><i class="zmdi zmdi-eye"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="spacer"></tr> 
+                                              <?php  }} ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div id="TL" class="col-12 m-b-30">
+                                <h3 class="p-b-20">Result for:  Types of Learner</h3>
+                                <div class="table-responsive table-responsive-data2">
+                                    <table class="table table-data2">
+                                        <thead>
+                                            <tr>
+                                                <th>ID Number</th>
+                                                <th>Date</th>
+                                                <th>Score</th>
+                                                <th>Result View</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php if (isset($noresult1)){ ?>
+                                            <tr>
+                                                <td><i class="fas fa-times"></i><strong> No records found</strong></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        <?php }else{ 
+                                            foreach ($result1 as $row1) {?> 
+                                            <tr>
+                                                <td><?php echo $row1['student_ID'];?></td>
+                                                <td><?php echo date('M d, Y ',strtotime($row1['history_date']))?></td>
+                                                <td><?php echo $row1['score_learner'];?></td>
+                                                <td>
+                                                    <div class="table-data-feature" style="justify-content: center !important;">
+                                                        <button class="item" data-placement="top" title="View" type="button" data-id="IDr" data-toggle="modal" data-target="#viewModal"><i class="zmdi zmdi-eye"></i>
                                                         </button>
                                                     </div>
                                                 </td>

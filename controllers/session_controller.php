@@ -33,4 +33,20 @@ function unsetSesh(){
 	session_destroy(); 
 }
 
+function checkuser(){
+
+	if ($_SESSION['student_ID']){
+		header("Location:../student/dashboard.php");
+	}
+	if ($_SESSION['emp_Privilege'] == 1) {
+		header("Location:../guidance/dashboard.php");
+	}	
+	if ($_SESSION['emp_Privilege'] == 2) {
+		header("Location:../teacher/dashboard.php");
+	}
+	if ($_SESSION['emp_Privilege'] == 3) {
+		header("Location:../admin/dashboard.php");
+	}
+}
+
 ?>
