@@ -1,8 +1,6 @@
-<?php require('../controllers/session_controller.php');?>
-<?php unsetSesh();?>
-<?php require('header.php');require('alert.php');?>
-<body class="animsition" style="
-    overflow: hidden;">
+<?php require('../controllers/session_controller.php');if(!$_SESSION){unsetSesh();}else{checkuser();}
+require('header.php');?>
+<body class="animsition" style="overflow: hidden;">
     <div class="backstretch">
         <div class="page-content">
             <div class="container">
@@ -59,5 +57,5 @@
         </div>
     </div>
 </body>
-<?php require('footer.php');
+<?php require('footer.php');require('alert.php');
 ?>

@@ -27,6 +27,18 @@ function learnerCalculate () {
 	return $result;
 }
 
+function insertResult($score){//
+	$conn = myConnect();
+	$student_id = $_SESSION['student_ID'];
+	$sql = "INSERT INTO data_history(student_ID, score_learner, history_date) VALUES ('$student_id', '$score', NOW())";
+	$result = mysqli_query($conn,$sql);
+	if($result){
+		header("Location:../a.personality/result.php?score=$score");
+	}else{
+		echo "Unexpected Error! ".mysqli_error($conn);
+	}
+}
+
 function learnerDeter ($l1,$l2,$l3){
 
 	$r1 = $_SESSION['l1'];
@@ -34,16 +46,17 @@ function learnerDeter ($l1,$l2,$l3){
 	$r3 = $_SESSION['l3'];
 
 	if(($r1 > $r2) AND ($r1 > $r3)){
-		$mssg = "Visual";
+		$score = "Visual";
 	}
 	if(($r2 > $r1) AND ($r2 > $r3)) {
-		$mssg = "Auditory";
+		$score = "Auditory";
 	}
 	if(($r3 > $r1) AND ($r3 > $r2)) {
-		$mssg = "Kinesthetic";
+		$score = "Kinesthetic";
 	}
-	if(isset($mssg)){
-		header("Location:../a.learner/result.php?result=$mssg");
+	if(isset($score)){
+		insertResult($score);
+		header("Location:../a.learner/result.php?result=$score");
 	}else{
 		echo "Unexpected Error! ";
 	}
@@ -56,12 +69,9 @@ function learnerQ ($n) {
 	return $result;
 }
 
-function insertResult($l1,$l2,$l3){//
-}
-
 function unsetln(){
-unset($_SESSION['l1']);
-unset($_SESSION['l2']);
-unset($_SESSION['l3']);
+	unset($_SESSION['l1']);
+	unset($_SESSION['l2']);
+	unset($_SESSION['l3']);
 }
 ?>

@@ -18,7 +18,7 @@
     			AND student_Password = SHA2(CONCAT('$loginpassword','$salt'),512) LIMIT 1"; //query statement
 			$result= mysqli_query($conn,$sql);
 			if (mysqli_num_rows($result) == 0){
-				$str = "Oops!";
+				$str = "x";
 				header("Location:../views/login.php?x=$str");
 			}else{
 				while($row = mysqli_fetch_assoc($result)) {

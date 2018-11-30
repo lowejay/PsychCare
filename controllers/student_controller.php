@@ -84,7 +84,7 @@ function loadHistory1($user_ID){
 
 	$conn = myConnect(); 
 	$id = $user_ID;
-	$sql = "SELECT * FROM data_history WHERE student_ID = $id AND score_learner != NULL
+	$sql = "SELECT * FROM data_history WHERE student_ID = $id AND score_learner IS NOT NULL
 			ORDER BY data_history.history_date DESC";
 	$result = mysqli_query($conn,$sql);
 	
@@ -122,7 +122,7 @@ function loadHistory3($user_ID){
 	$result = mysqli_query($conn,$sql);
 	
 		if(mysqli_num_rows($result)==0){
-
+			return 0;
 		}else{
 		while($row=mysqli_fetch_array($result)){	
 			//do something as long as there's a remaining row.

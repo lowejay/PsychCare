@@ -1628,17 +1628,39 @@
 
 })(jQuery);
 
+$(document).ready(function() {
 //////////////////////////////// CUSTOM JAVASCRIPTS ////////////////////////////////////////////////////////
-$("#modal-body").on("load", function() {
-    var val = $(this).val();
-    $(".types").hide().find('input:text').val(''); // hide and empty
-});
-// Select all links with hashes
-$('a[href*="#"]')
-    // Remove links that don't actually link to anything
-    .not('[href="#"]')
-    .not('[href="#0"]')
-    .click(function(event) {
+    $("#modal-body").on("load", function() {
+        var val = $(this).val();
+        $(".types").hide().find('input:text').val(''); // hide and empty
+    });
+    $('#PD').show();
+    $('#PT').hide();
+    $('#TL').hide();
+    $(".hbtn").click(function(){
+        var val = $(this).val();
+        if (val == 'pd') {
+            $("html, body").animate({ scrollTop: 0 }, 200);
+            $('#PD').show();
+            $('#PT').hide();
+            $('#TL').hide();
+        }else if(val == 'pt') {
+            $("html, body").animate({ scrollTop: 0 }, 200);
+            $('#PD').hide();
+            $('#PT').show();
+            $('#TL').hide();
+        }else if(val == 'tl') {
+            $("html, body").animate({ scrollTop: 0 }, 200);
+            $('#PD').hide();
+            $('#PT').hide();
+            $('#TL').show();
+        }
+    });
+    $("select").select2({
+        placeholder: "Select below"
+    });
+
+    $('a[href*="#"]').not('[href="#"]').not('[href="#0"]').click(function(event){
         // On-page links
         if (
             location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
@@ -1668,6 +1690,8 @@ $('a[href*="#"]')
             }
         }
     });
+});
+
 //////////////////////////////// ADMIN /////////////////////////////////////////////////////////////////
 function removethisEmployee(id) {
     if (confirm('Confirm removing this employee? This action cannot be undone.')) {
@@ -1824,11 +1848,6 @@ function validateAppointmentTime() {
     });
 
 }
-$(document).ready(function() {
-    $("select").select2({
-        placeholder: "Select below"
-    });
-});
 //////////////////////////////// STUDENT //////////////////////////////////////////////////////////////
 function addAppointment(id){
     swal({
@@ -1839,8 +1858,6 @@ function addAppointment(id){
     .then((remove) => {
       if (remove) {
         window.location='../controllers/student_controller.php?add-appointment='+id;
-      }else{
-
       }
     });
 }
